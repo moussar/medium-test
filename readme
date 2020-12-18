@@ -1,0 +1,16 @@
+#Link to a demo : https://www.loom.com/share/007d8083182b40e4bc85364d651a8f4e
+
+#Resources :
+
+    Backend :
+        Server created with Nodejs and business logic handled by express (v4.17) using Typescript
+        ORM handled by using Sequelize (v3.5)
+        Datebase handled by PostgreSQL (v11) and PgAdmin(v4)
+
+    Frontend :
+        Interface created by using Bootstrap Framework (v4.0) and SCSS
+        business logic and interactive actions handled by Angular (v11) using SSR (nguniversal)
+
+
+PostgreSQL used instead of mariaDb because it's already installed and configured in local machine and it have the same characteristics and power of RDBMS
+A Nodejs Instance with Sequelize ORM choose because of some difficulties to install php7 in local machine and also it represent an other way to do this work
