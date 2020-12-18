@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Article } from "../../models/article.model";
 
 @Component({
   selector: 'app-article',
@@ -7,5 +8,9 @@ import { Component } from '@angular/core';
 })
 export class ArticleComponent {
 
+  selectedArticle: Article = new Article();
 
+  handleSelectedArticle(article: Article) {
+    this.selectedArticle = article;
+  }
 }

@@ -1,7 +1,7 @@
 <div>
-    <form class="form-search">
+    <form class="form-search" (keydown)="onSearchArticles($event,searchForm)" #searchForm="ngForm">
         <div class="form-group">
-            <input type="text" class="form-control" id="InputSearch" name="keyword" placeholder="Search">
+            <input type="text" class="form-control" id="InputSearch" name="keyword" [(ngModel)]="keyword" placeholder="Search">
         </div>
         <div class="form-inline">
             <div class="form-group pl-0 col-sm-8">
@@ -19,13 +19,13 @@
         </div>
     </form>
     <hr>
-    <p class="text-right">articles.length results found</p>
+    <p class="text-right">{{articles.length}} results found</p>
     <div class="articles">
-        <div class="article">
-            <a href="#" >
-                <h5>article.name</h5>
+        <div *ngFor="let article of articles" class="article">
+            <a href="#" (click)="handleSelectedArticle.emit(article)">
+                <h5>{{article.name}}</h5>
                 <p>
-                    article.content
+                    {{article.content | slice:0:150}}
                 </p>
             </a>
         </div>

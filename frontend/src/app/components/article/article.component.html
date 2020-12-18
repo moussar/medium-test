@@ -6,15 +6,15 @@
                 <div class="col-1"><i class="far fa-file"></i></div>
                 <div class="col-1"><i class="far fa-edit"></i></div>
               </div>
-              <h2 class="article-post-title">selectedArticle.name</h2>
-              <p class="article-post-meta">Author : selectedArticle.user.username - Published at selectedArticle.created_at</p>
-              <p>selectedArticle.content</p>
+              <h2 class="article-post-title">{{selectedArticle.name}}</h2>
+              <p class="article-post-meta">Author : {{selectedArticle.user.username}} - Published at {{selectedArticle.created_at |  date : 'd MMM y'}}</p>
+              <p>{{selectedArticle.content}}</p>
               <app-reaction></app-reaction>
             </div>
-            <app-comment></app-comment>
+            <app-comment [comments]="selectedArticle.comments" [article_id]="selectedArticle.id"></app-comment>
         </div>
         <div class="col-sm-4">
-            <app-search></app-search>
+            <app-search (handleSelectedArticle)="handleSelectedArticle($event)"></app-search>
           </div>
     </div>
 </div>
