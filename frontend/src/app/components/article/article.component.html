@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-8 blog-main">
+            <div class="article-post">
+              <div class="reaction-btns row float-right">
+                <div class="col-1"><i class="far fa-file"></i></div>
+                <div class="col-1"><i class="far fa-edit"></i></div>
+              </div>
+              <h2 class="article-post-title">selectedArticle.name</h2>
+              <p class="article-post-meta">Author : selectedArticle.user.username - Published at selectedArticle.created_at</p>
+              <p>selectedArticle.content</p>
+              <app-reaction></app-reaction>
+            </div>
+            <app-comment></app-comment>
+        </div>
+        <div class="col-sm-4">
+            <app-search></app-search>
+          </div>
+    </div>
+</div>
