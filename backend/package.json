@@ -1,0 +1,45 @@
+{
+  "name": "backend-api",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "node dist/app/index.js",
+    "predev": "tsc -p app",
+    "build": "concurrently  \"tsc -p app\"",
+    "dev": "concurrently \"tsc -w -p app\" \"NODE_ENV=development nodemon dist/app/index.js\"",
+    "prod": "concurrently  \"tsc -p app && NODE_ENV=production node dist/app/index.js\""
+  },
+  "author": "Mouhssine AREGU",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^3.3.0",
+    "protractor": "~5.1.2",
+    "sequelize-cli": "^5.5.0",
+    "ts-node": "~3.0.4",
+    "tslint": "~5.3.2"
+  },
+  "dependencies": {
+    "@types/bluebird": "^3.5.27",
+    "@types/node": "^12.0.8",
+    "@types/validator": "^10.11.1",
+    "bcrypt": "^3.0.6",
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.4",
+    "csv-express": "^1.2.2",
+    "csv-parse": "^4.4.3",
+    "csvtojson": "^2.0.10",
+    "dotenv": "^8.0.0",
+    "express": "^4.17.1",
+    "express-session": "^1.16.2",
+    "jsonwebtoken": "^8.5.1",
+    "moment": "^2.24.0",
+    "morgan": "^1.9.1",
+    "pg": "^7.11.0",
+    "pg-hstore": "^2.3.3",
+    "sequelize": "^5.8.9",
+    "typescript": "^3.5.2"
+  },
+  "resolutions": {
+    "@types/bluebird": "^3.5.27"
+  }
+}
