@@ -3,7 +3,6 @@ import * as session from 'express-session';
 
 import * as dotenv from 'dotenv';
 import * as express from 'express';
-//import * as morgan from 'morgan';
 
 import setRoutes from './routes';
 
@@ -16,13 +15,8 @@ app.set('port', (3001));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-//app.use(morgan('dev'));
-
-app.disable('x-powered-by');
-//console.log('env :',process.env.SECRET_TOKEN_SESSION,process.env.NODE_ENV)
-
 app.use(session({
-  secret: process.env.SECRET_TOKEN_SESSION, // session secret
+  secret: process.env.SECRET_TOKEN_SESSION,
   resave: true,
   cookie: {
     secure: false,
@@ -38,8 +32,6 @@ app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Methods", "GET, POST,OPTIONS, PUT, DELETE");
   next();
 });
-
-//process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0"; // hack in dev for mail
 
 
 setRoutes(app);

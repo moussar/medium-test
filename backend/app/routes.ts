@@ -22,39 +22,37 @@ export default function setRoutes(app) {
   /* Articles */
 
   // get All 
-  router.route('/articles').get(articleCtrl.getAll); //authenticate.isLoggedIn,
+  router.route('/articles').get(authenticate.isLoggedIn, articleCtrl.getAll);
 
   // Search 
-  router.route('/articles/search').post(articleCtrl.search);
+  router.route('/articles/search').post(authenticate.isLoggedIn, articleCtrl.search);
 
   // Create 
-  router.route('/article').post(articleCtrl.create);
+  router.route('/article').post(authenticate.isLoggedIn, articleCtrl.create);
 
   // Update 
-  router.route('/article/:id').put(articleCtrl.update);
+  router.route('/article/:id').put(authenticate.isLoggedIn, articleCtrl.update);
 
   // Delete 
-  router.route('/article/:id').delete(articleCtrl.delete);
+  router.route('/article/:id').delete(authenticate.isLoggedIn, articleCtrl.delete);
 
 
   /* Comments */
 
   // Create 
-  router.route('/comment').post(commentCtrl.create);
+  router.route('/comment').post(authenticate.isLoggedIn, commentCtrl.create);
 
   /* Users */
 
   // Create 
-  router.route('/user').post(userCtrl.create);
+  router.route('/user').post(authenticate.isLoggedIn, userCtrl.create);
 
   // login
-  router.route('/user/login').post(userCtrl.login);
+  router.route('/user/login').post(authenticate.isLoggedIn, userCtrl.login);
 
   /* Reactions */
 
-  router.route('/reaction').post(reactionCtrl.react);
-
-
+  router.route('/reaction').post(authenticate.isLoggedIn, reactionCtrl.react);
 
   // Apply the routes to our application with the prefix /api
   app.use('/api', router);
