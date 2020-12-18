@@ -10,11 +10,12 @@ export class CommentService {
   constructor(private http: HttpClient) { }
 
   apiUrl = 'http://localhost:3001';
+  token = localStorage.getItem('currentUser') || '';
 
   private httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
-      //Authorization: 'my-auth-token'
+      Authorization: JSON.parse(this.token)
     })
   };
 
